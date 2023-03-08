@@ -1,0 +1,1 @@
+# GuideTI-Variacao-do-Ativo
