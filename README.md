@@ -16,18 +16,23 @@ Link para o download da ferramenta: https://sqlitebrowser.org/dl/
 
 ## Execução do Projeto
 
-Abaixo segue o passo a passo para a execução do Projeto:
+É de escolha do usuário executar o projeto diretamente pelo Visual Studio 2022 (que será um processo mais rápido) ou publicar a solução em um site no IIS local. Abaixo segue o passo a passo para a execução do projeto diretamente pelo VS22:
 
 1. O usuário deve clonar ou mesmo baixar o código fonte pelo botão '<>code' disponível nessa página!
-2. Abra a solução do projeto com a versão 2022 do Visual Studio. Esta é a versão suportada pelo .NET 6.0
+2. Abra a solução do projeto com o VS22. Esta é a versão suportada pelo .NET 6.0
 3. Uma vez aberta a solução, o usuário já pode executá-la. Caso o Visual Studio solicite a aprovação de confiança do certificado SSL, o usuário deve confirmar o aceite para a execução do swagger.
 
 ## Publicar o Projeto
 
-1. Crie um novo site no IIS. Certifique-se de conceder as permissões necessárias ao pool e ao usuario do Windows para não obter erros de permissão de acesso.
-2. Já existe um perfil de publicação criado nessa solução. O usuário pode clicar com o botão direito no projeto 'VariacaoDoAtivo' e escolher a opção 'Publicar'. Irá abrir uma janela com as configurações previamente realizada.
-3. Após publicar, o usuario deverá copiar o conteúdo que se encontra dentro de 'bin\Release\net6.0\publish\' na pasta do projeto e colar no diretório onde foi criado o Site do IIS.
-4. Para acesso às rotas configuradas no projeto, o usuario deve acessar o endereço que foi configurado no IIS + o sufixo '/swagger/index.html'. Exemplo de acesso: http://localhost:7530/swagger/index.html
+A seguir um passo a passo para publicação da solução utilizando o Visual Studio 2022 no idioma pt-br.
+
+1. Crie um novo site no IIS. Certifique-se de conceder as permissões necessárias ao pool e ao usuário do Windows para não obter erros de permissão de acesso.
+2. Para criar um perfil de publicação o usuário pode clicar com o botão direito no projeto 'VariacaoDoAtivo' e escolher a opção 'Publicar'. Irá abrir uma janela com as opções de publicação. Escolha o Destino como 'Pasta' e clique em próximo. Por padrão, o visual studio preenche o 'Local da pasta', então já podemos clicar em Concluir.
+3. Após concluir irá aparecer a janela de progresso e logo irá mostrar um aviso de Perfil de publicação criado. Clique em fechar. A janela que estará aberta no fundo é o perfil de publicação que criamos. Agora basta clicar no botão 'Publicar '
+4. Clique na opção 'Mostrar todas as configurações'. Aguarde enquanto o Visual Studio carrega o Contexto de Dados. Serão mostradas as opções 'Banco de Dados' e 'Migrações do Entity Framework'. Expanda ambas as opções e marque suas caixas de seleção que representa o valor da ConnectionString do SQLite. Clique em Salvar. **OBS:**: caso seja apresentado algum erro de dotnet tool, certifique-se de que o dotnet tool está instalado executando o seguinte comando no Console de Gerenciador de pacotes: 'dotnet tool install --global dotnet-ef'
+5. Agora o perfil está preparado para publicação. O usuári pode clicar no botão 'Publicar' que está na janela atual. 
+6. Após publicar, o usuário deverá copiar o conteúdo que se encontra dentro do diretório que foi definido no etapa 2 deste passo-a-passo e colar no diretório onde foi criado o Site do IIS (na etapa 1).
+7. Para acesso às rotas configuradas no projeto, o usuário deve acessar o endereço que foi configurado no IIS + o sufixo '/swagger/index.html'. Exemplo de acesso: http://localhost:7530/swagger/index.html
 
 ## Funcionamento do projeto
 
